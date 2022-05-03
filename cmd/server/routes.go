@@ -10,7 +10,7 @@ func (app application) routes() {
 	group := app.server.Group("/pizza")
 
 	group.GET("/health-check", func(c echo.Context) error {
-		app.logger.Infof("Testing")
-		return c.String(http.StatusOK, "health")
+		return c.JSON(http.StatusOK, "ok")
 	})
+	group.POST("/add", nil)
 }
