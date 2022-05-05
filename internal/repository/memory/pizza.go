@@ -1,4 +1,4 @@
-package organizer
+package memory
 
 import (
 	"context"

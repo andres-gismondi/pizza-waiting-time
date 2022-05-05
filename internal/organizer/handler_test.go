@@ -10,7 +10,9 @@ import (
 
 	"github.com/labstack/echo/v4"
 	log "github.com/sirupsen/logrus"
+
 	"pizza-waiting-time/internal/organizer"
+	"pizza-waiting-time/internal/repository/memory"
 )
 
 func TestHandler_Handle(t *testing.T) {
@@ -18,7 +20,7 @@ func TestHandler_Handle(t *testing.T) {
 	logg.SetFormatter(&log.JSONFormatter{})
 	logg.SetLevel(log.DebugLevel)
 	logg.SetOutput(os.Stdout)
-	repo := organizer.NewPizzaTime(logg)
+	repo := memory.NewPizzaTime(logg)
 	handler := organizer.NewHandler(logg)
 	handler.PizzaTimeProvider = repo
 
